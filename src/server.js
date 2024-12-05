@@ -4,8 +4,8 @@ const routes = require('./routes');
 const init = async () => {
     const server = Hapi.server({
         port: 9000,
-        host: 'localhost',
-    });
+        host: '0.0.0.0', // Mendengarkan koneksi dari semua IP
+    });    
 
     server.ext('onRequest', (request, h) => {
         request.mime = request.headers['content-type'] || 'application/json';
